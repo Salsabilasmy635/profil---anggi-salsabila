@@ -837,8 +837,32 @@ footer p {
 
     .home-text {
         order: 2; /* Teks di bawah foto */
+        text-align: center; /* MEMBUAT SEMUA TEKS KE TENGAH */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* MEMBUAT TOMBOL & ICON KE TENGAH */
     }
-    
+
+    .home-text h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .description {
+        margin-left: auto;
+        margin-right: auto; /* Memastikan paragraf tetap di tengah */
+    }
+
+    .home-buttons {
+        justify-content: center; /* Membuat tombol Download CV & Contact berjejer di tengah */
+        width: 100%;
+    }
+
+    .social-links {
+        justify-content: center; /* Membuat icon sosmed ke tengah */
+        width: 100%;
+    }
+
     .about-grid, .skills-container, .projects-grid, .contact-grid, .hobbies-grid {
         grid-template-columns: 1fr;
     }
