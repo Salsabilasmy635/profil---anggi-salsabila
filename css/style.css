@@ -809,129 +809,45 @@ footer p {
     .nav-menu li {
         margin: 10px 0;
     }
-}
-
 
     nav {
         padding: 1rem 5%;
     }
-
-    .logo a {
-        font-size: 1.3rem;
-    }
-
-    .nav-menu {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    .nav-menu a {
-        font-size: 1rem;
-        padding: 10px 20px;
-        display: block;
-    }
-
-    .nav-container {
-        position: relative;
-    }
-
-    .logo a {
-        font-size: 1.3rem;
-    }
-
-    .home-content {
-        grid-template-columns: 1fr;
+    .nav-container { position: relative; }
+    .home-content { 
+        grid-template-columns: 1fr; 
         gap: 2rem;
-        text-align: center;
+        text-align: center; 
+        padding-top: 2rem;
+    }
+    .home-image img { 
+        display: flex;
+        justify-content: center;
+        order: 1; /* Foto jadi di atas teks */
+        max-width: 250px; 
+        border-radius: 20px; 
     }
 
-    .home-image {
-        order: 1;
-        margin-bottom: 20px
-    }
-
-    .home-image img {
-        width: 100%;
-        max-width: 250px; /* Ukuran foto jadi lebih mungil & pas di HP */
-        border-radius: 20px;
+    .image-frame { 
+        max-width: 250px; 
+        height: 250px; /* Buat kotak sama sisi di HP agar rapi */
+        border-radius: 20px; 
         margin: 0 auto;
-    }
-
-    .home-content {
-        order: 2; /* Teks pindah ke bawah foto */
     }
 
     .home-text {
-        order: 2;
+        order: 2; /* Teks di bawah foto */
     }
-
-    .image-frame {
-        max-width: 350px;
-        margin: 0 auto;
-    }
-
-    .home-text h1 {
-        font-size: 2.5rem;
-    }
-
-    .subtitle {
-        font-size: 1.2rem;
-    }
-
-    .description {
-        font-size: 1rem;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .home-buttons {
-        justify-content: center;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-
-    section {
-        padding: 6rem 5%;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .skills-container {
+    
+    .about-grid, .skills-container, .projects-grid, .contact-grid, .hobbies-grid {
         grid-template-columns: 1fr;
     }
+}}
 
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .container {
-        margin-top: 20px; /* Tambahkan jarak agar konten tidak tertutup menu */
-        flex-direction: column !important;
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hobbies-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
+   
 /*Animasi slide down menu */
 @keyframes slideDownMenu {
+
     from {
         opacity: 0;
         transform: translateY(-20px);
