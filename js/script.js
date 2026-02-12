@@ -113,6 +113,47 @@ window.addEventListener('scroll', () => {
 console.log('%c👋 Halo! Welcome to my portfolio!', 'color: #a89080; font-size: 20px; font-weight: bold;');
 console.log('%cJika kamu tertarik untuk berkolaborasi, jangan ragu untuk menghubungi saya!', 'color: #6b6b6b; font-size: 14px;');
 
+// ============================================
+// HAMBURGER MENU TOGGLE
+// ============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuIcon = document.getElementById('menu-icon');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (!menuIcon || !navMenu) {
+        console.error('Menu icon atau nav menu tidak ditemukan!');
+        return;
+    }
+
+    // Toggle menu saat hamburger diklik
+    menuIcon.addEventListener('click', function(e) {
+        e.stopPropagation(); // ← PENTING! Cegah event bubble
+        navMenu.classList.toggle('active');
+        menuIcon.classList.toggle('active');
+        console.log('Menu status:', navMenu.classList.contains('active') ? 'TERBUKA' : 'TERTUTUP');
+    });
+
+    // Tutup menu saat link menu diklik
+    const menuLinks = document.querySelectorAll('.nav-menu a');
+    menuLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            menuIcon.classList.remove('active');
+        });
+    });
+
+    // Tutup menu saat klik di luar menu (OPTIONAL - bisa dihapus dulu kalau masih error)
+    document.addEventListener('click', function(e) {
+        const isClickInsideMenu = navMenu.contains(e.target);
+        const isClickOnIcon = menuIcon.contains(e.target);
+        
+        if (!isClickInsideMenu && !isClickOnIcon && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            menuIcon.classList.remove('active');
+        }
+    });
+});
 
 // ============================================
 // MODERN FLOATING BACKGROUND + PARTICLES
@@ -239,3 +280,4 @@ document.addEventListener("DOMContentLoaded", () => {
     sections.forEach(id => addFloatingBackground(id));
     console.log("✨ Modern floating + particles active!");
 });
+

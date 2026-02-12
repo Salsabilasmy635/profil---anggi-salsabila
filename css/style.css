@@ -755,33 +755,65 @@ footer p {
 /* Tampilan HP (Responsive) */
 @media (max-width: 768px) {
     .menu-icon {
-        display: flex; /* Munculkan ikon di HP */
+        display: flex !important; /* Munculkan ikon di HP */
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1001;
     }
+
+    .menu-icon span {
+        width: 25px;
+        height: 3px;
+        background-color: #a89080;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    /* Animasi hamburger jadi X */
+    .menu-icon.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-icon.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-icon.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+
 
     .nav-menu {
         display: none; /* Sembunyikan menu asli dulu */
         position: absolute;
-        top: 60px;
+        top: 100%;
         left: 0;
         width: 100%;
-        background-color: white; /* Beri background agar tidak tembus pandang */
+        background-color: rgba(255, 255, 255, 0.98);
         flex-direction: column;
         text-align: center;
         padding: 20px 0;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(168, 144, 128, 0.2);
+        z-index: 1000;
     }
 
     /* Saat menu aktif (diklik) */
     .nav-menu.active {
-        display: flex;
+        display: flex !important;
+        animation: slideDownMenu 0.3s ease-out;
+    }
+
+    .nav-menu li {
+        margin: 10px 0;
     }
 }
 
 
     nav {
-    padding: 10px 0;
-        background: #f8f5f0; /* Beri warna background yang sama dengan body */
-        width: 100%;
+        padding: 1rem 5%;
     }
 
     .logo a {
@@ -797,7 +829,17 @@ footer p {
     }
 
     .nav-menu a {
-        font-size: 0.9rem;
+        font-size: 1rem;
+        padding: 10px 20px;
+        display: block;
+    }
+
+    .nav-container {
+        position: relative;
+    }
+
+    .logo a {
+        font-size: 1.3rem;
     }
 
     .home-content {
@@ -885,6 +927,18 @@ footer p {
 
     .hobbies-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/*Animasi slide down menu */
+@keyframes slideDownMenu {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
