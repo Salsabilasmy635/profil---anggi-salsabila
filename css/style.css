@@ -736,9 +736,52 @@ footer p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .nav-container {
+
+    /* Tampilan Desktop: Ikon disembunyikan */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-icon span {
+    width: 25px;
+    height: 3px;
+    background-color: #333; /* Sesuaikan warna dengan tema kamu */
+    transition: 0.3s;
+}
+
+/* Tampilan HP (Responsive) */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: flex; /* Munculkan ikon di HP */
+    }
+
+    .nav-menu {
+        display: none; /* Sembunyikan menu asli dulu */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: white; /* Beri background agar tidak tembus pandang */
         flex-direction: column;
-        gap: 1rem;
+        text-align: center;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Saat menu aktif (diklik) */
+    .nav-menu.active {
+        display: flex;
+    }
+}
+
+
+    nav {
+    padding: 10px 0;
+        background: #f8f5f0; /* Beri warna background yang sama dengan body */
+        width: 100%;
     }
 
     .logo a {
@@ -746,9 +789,11 @@ footer p {
     }
 
     .nav-menu {
-        gap: 1.5rem;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 10px 0;
     }
 
     .nav-menu a {
@@ -763,6 +808,18 @@ footer p {
 
     .home-image {
         order: 1;
+        margin-bottom: 20px
+    }
+
+    .home-image img {
+        width: 100%;
+        max-width: 250px; /* Ukuran foto jadi lebih mungil & pas di HP */
+        border-radius: 20px;
+        margin: 0 auto;
+    }
+
+    .home-content {
+        order: 2; /* Teks pindah ke bawah foto */
     }
 
     .home-text {
@@ -815,6 +872,11 @@ footer p {
 
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+
+    .container {
+        margin-top: 20px; /* Tambahkan jarak agar konten tidak tertutup menu */
+        flex-direction: column !important;
     }
 
     .contact-grid {
